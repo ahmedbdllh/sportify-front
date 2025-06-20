@@ -35,9 +35,8 @@ export const ProfileHeader = ({ user }) => {
         <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
           {/* Avatar and Basic Info */}
           <div className="flex items-center gap-6 animate-fadeInUp">
-            <div className="relative">
-              <Avatar
-                src={user.profileImage ? `https://sportify-auth.onrender.com${user.profileImage}` : null}
+            <div className="relative">              <Avatar
+                src={user.profileImage ? `https://sportify-auth.onrender.com/uploads/${user.profileImage}` : null}
                 alt={user.fullName}
                 size="xl"
                 className="ring-4 ring-white/20 shadow-2xl hover:ring-white/40 transition-all duration-500 hover:scale-105"

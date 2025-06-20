@@ -62,9 +62,10 @@ export class AuthService {
     const data = await response.json();
     return { response, data };
   }
-
   // Email verification
   static async verifyEmail(email, verificationCode, role) {
+    console.log('Verifying email with:', { email, code: verificationCode, role });
+    
     const response = await fetch(`${API_BASE_URL}/verification/verify-email`, {
       method: "POST",
       headers: {
@@ -77,6 +78,7 @@ export class AuthService {
     });
 
     const data = await response.json();
+    console.log('Verification response:', { status: response.status, data });
     return { response, data };
   }
 
