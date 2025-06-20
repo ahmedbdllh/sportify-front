@@ -106,18 +106,17 @@ export const PlayerSignUp = ({ onClose, onSwitchToPlayerSignIn }) => {
       recaptchaToken
     };
 
-    try {      const { response, data } = await AuthService.playerSignup(userData);
-
-      if (!response.ok) {
+    try {      const { response, data } = await AuthService.playerSignup(userData);      if (!response.ok) {
         if (
           data.msg &&
           (data.msg.includes("verification code was already sent") ||
-            data.msg.includes("already registered as pending user"))
+            data.msg.includes("already registered as pending user") ||
+            data.msg.includes("An account with this information already exists"))
         ) {
           setUserEmail(email);
           setError("");
           setSuccessMessage(
-            data.msg.includes("already registered as pending user")
+            data.msg.includes("already registered as pending user") || data.msg.includes("An account with this information already exists")
               ? "Account already created! Please check your email for the verification code."
               : "A verification code was already sent. Please check your email."
           );

@@ -69,10 +69,9 @@ export class AuthService {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
+      },      body: JSON.stringify({
         email,
-        verificationCode,
+        code: verificationCode,
         role,
       }),
     });
