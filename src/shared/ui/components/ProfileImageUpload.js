@@ -42,7 +42,7 @@ export const ProfileImageUpload = ({ currentImage, onImageUpdate, className = ""
       formData.append("profileImage", file)
 
       const token = localStorage.getItem("token")
-      const response = await fetch("http://localhost:5000/api/auth/upload-profile-image", {
+      const response = await fetch("https://sportify-auth.onrender.com/api/auth/upload-profile-image", {
         method: "POST",
         headers: {
           "x-auth-token": token,
@@ -86,7 +86,7 @@ export const ProfileImageUpload = ({ currentImage, onImageUpdate, className = ""
 
     try {
       const token = localStorage.getItem("token")
-      const response = await fetch("http://localhost:5000/api/auth/remove-profile-image", {
+      const response = await fetch("https://sportify-auth.onrender.com/api/auth/remove-profile-image", {
         method: "DELETE",
         headers: {
           "x-auth-token": token,
@@ -133,7 +133,7 @@ export const ProfileImageUpload = ({ currentImage, onImageUpdate, className = ""
       <div className="flex flex-col items-center space-y-4">
         <div className="relative">
           <Avatar
-            src={currentImage ? `http://localhost:5000${currentImage}` : null}
+            src={currentImage ? `https://sportify-auth.onrender.com${currentImage}` : null}
             alt="Profile picture"
             size="xl"
             className="border-4 border-border"

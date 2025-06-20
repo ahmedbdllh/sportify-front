@@ -27,7 +27,7 @@ const AccountSettings = () => {  const [user, setUser] = useState(null)
       // First try to fetch fresh user data from backend
       if (token) {
         try {
-          const userResponse = await axios.get("http://localhost:5000/api/auth/profile", {
+          const userResponse = await axios.get("https://sportify-auth.onrender.com/api/auth/profile", {
             headers: { "x-auth-token": token },
           });
           
@@ -75,7 +75,7 @@ const AccountSettings = () => {  const [user, setUser] = useState(null)
       // Fetch actual 2FA status from backend
       if (token) {
         try {
-          const statusResponse = await axios.get("http://localhost:5000/api/2fa/status", {
+          const statusResponse = await axios.get("https://sportify-auth.onrender.com/api/2fa/status", {
             headers: { "x-auth-token": token },
           });
           
@@ -134,7 +134,7 @@ const AccountSettings = () => {  const [user, setUser] = useState(null)
       try {
         const token = localStorage.getItem("token")
         await axios.post(
-          "http://localhost:5000/api/2fa/disable",
+          "https://sportify-auth.onrender.com/api/2fa/disable",
           {},
           {
             headers: { "x-auth-token": token },
